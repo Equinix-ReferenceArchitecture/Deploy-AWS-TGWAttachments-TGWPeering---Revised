@@ -48,11 +48,6 @@ variable "attachment_name2" {
   type        = string
 }
 
-variable "region_2" {
-  description = "This is the AWS 2nd region"
-  type        = string
-}
-
 variable "route_1_VPC01_to_TGW01" {
   description = "This is the route added between VPC01 and TGW01"
   type = string
