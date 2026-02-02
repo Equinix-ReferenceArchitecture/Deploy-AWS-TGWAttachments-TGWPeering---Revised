@@ -79,7 +79,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "TGW_to_VPC_2" {
 
 resource "aws_ec2_transit_gateway_peering_attachment" "example" {
   peer_account_id         = var.authentication_key
-  peer_region             = var.region_2
+  peer_region             = var.secondary_aws_region
   peer_transit_gateway_id = data.terraform_remote_state.remote_outputs_3.outputs.TGW_ID_Parent_2 
   transit_gateway_id      = data.terraform_remote_state.remote_outputs_3.outputs.TGW_ID_Parent 
 
