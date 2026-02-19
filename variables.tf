@@ -50,12 +50,12 @@ variable "attachment_name2" {
 
 variable "route_1_VPC01_to_TGW01" {
   description = "This is the route added between VPC01 and TGW01"
-  type = string
+  type = list(string)
 }
 
 variable "route_2_VPC02_to_TGW02" {
   description = "This is the route added between VPC01 and TGW01"
-  type = string
+  type = list(string)
 }
 
 variable "primary_aws_region" {
