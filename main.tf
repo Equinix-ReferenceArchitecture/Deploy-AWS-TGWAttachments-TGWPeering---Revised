@@ -100,24 +100,8 @@ provider = aws.secondary
   
 }
 
-/*
-# Route 1: VPC01 → TGW01
-resource "aws_route" "route_1" {
-  route_table_id         = data.terraform_remote_state.remote_outputs_1.outputs.Main_RT_ID_Parent_01
-  destination_cidr_block = var.route_1_VPC01_to_TGW01
-  transit_gateway_id     = data.terraform_remote_state.remote_outputs_3.outputs.TGW_ID_Parent 
-}
 
-
-# Route 2: VPC02 → TGW02
-resource "aws_route" "route_2" {
-  route_table_id         = data.terraform_remote_state.remote_outputs_1.outputs.Main_RT_ID_Parent_02
-  destination_cidr_block = var.route_2_VPC02_to_TGW02
-  transit_gateway_id     = data.terraform_remote_state.remote_outputs_3.outputs.TGW_ID_Parent_2
-  provider = aws.secondary
-}
-*/
-
+# Route's: VPC01 → TGW01
 resource "aws_route" "route_1" {
   for_each = toset(var.route_1_VPC01_to_TGW01)
 
@@ -126,7 +110,7 @@ resource "aws_route" "route_1" {
   transit_gateway_id     = data.terraform_remote_state.remote_outputs_3.outputs.TGW_ID_Parent
 }
 
-
+# Route's: VPC02 → TGW02
 resource "aws_route" "route_2" {
   for_each = toset(var.route_2_VPC02_to_TGW02)
 
